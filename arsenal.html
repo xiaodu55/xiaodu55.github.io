@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arsenal | HFusion | AI 应用 / Agent 方向</title>
+  <meta name="description" content="杜凯峰（xiaodu55）的个人站点：Agent 治理、RAG 评测门禁与高并发后端。">
+  <meta name="author" content="HFusion">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>try { if (sessionStorage.getItem('hud_booted') === '1') { document.documentElement.className += ' no-boot'; } } catch (e) {}</script>
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="neuralCanvas" aria-hidden="true"></canvas>
+
+<div class="boot-overlay" id="bootOverlay">
+  <div class="boot-box">
+    <div class="boot-logo">HFusion // AGENT OPS</div>
+    <div class="boot-log" id="bootLog">&gt; booting ...</div>
+    <div class="boot-bar-frame"><div class="boot-bar-progress" id="bootProgress"></div></div>
+  </div>
+</div>
+
+<header class="hud">
+  <div class="hud__inner">
+    <div class="hud-left">
+      <div class="status-badge"><span class="pulse-dot"></span><span>ONLINE</span></div>
+      <div class="hud-chip"><span>个已合并上游 PR</span><strong class="cyan"><span data-live="mergedPRs">45</span></strong></div><div class="hud-chip"><span>关注者</span><strong class="cyan"><span data-live="followers">10</span></strong></div><div class="hud-chip"><span>条用例全绿</span><strong class="cyan"><span data-live="testsGreen">4013</span></strong></div><div class="hud-chip"><span>例冻结评测集</span><strong class="cyan"><span data-live="evalCases">220</span></strong></div>
+    </div>
+    <div class="hud-right">
+      <div class="hud-chip"><span>TZ</span><strong>UTC+8</strong></div>
+      <div class="hud-chip"><span>UTC</span><strong id="hudClock">00:00:00</strong></div>
+      <button class="lang-btn" type="button" id="langToggleBtn"><span class="lang-current" id="langCurrent">ZH</span> / <span id="langAlt">EN</span></button>
+      <button class="lang-btn" type="button" id="soundToggleBtn"><span id="soundIcon">🔊</span> <span id="soundStatusText">ON</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand-box">
+      <div class="brand-title"><span>HFusion</span><span class="tag">AGENT OPS</span></div>
+      <div class="brand-sub">AI 应用 / Agent 方向 · 后端开发&lt;br&gt;GitHub / xiaodu55 · 掘金 / HFusion</div>
+    </div>
+    <ul class="nav-menu">
+          <li><a class="nav-btn" href="index.html"><span class="left-content"><span class="nav-idx">01</span><span class="nav-label" data-bind="nav.overview.label">概览</span></span><span class="nav-tag">CORE</span></a></li>
+          <li><a class="nav-btn" href="missions.html"><span class="left-content"><span class="nav-idx">02</span><span class="nav-label" data-bind="nav.missions.label">项目</span></span><span class="nav-tag">WORKS</span></a></li>
+          <li><a class="nav-btn active" href="arsenal.html"><span class="left-content"><span class="nav-idx">03</span><span class="nav-label" data-bind="nav.arsenal.label">武器库</span></span><span class="nav-tag">STACK</span></a></li>
+          <li><a class="nav-btn" href="blog.html"><span class="left-content"><span class="nav-idx">04</span><span class="nav-label" data-bind="nav.blog.label">个人博客</span></span><span class="nav-tag">LOG</span></a></li>
+          <li><a class="nav-btn" href="terminal.html"><span class="left-content"><span class="nav-idx">05</span><span class="nav-label" data-bind="nav.terminal.label">终端</span></span><span class="nav-tag">CLI</span></a></li>
+    </ul>
+    <div class="sidebar-stats">
+<div class="stat-row"><span>MERGED PRs</span><span class="stat-val">45</span></div>
+<div class="stat-row"><span>UPSTREAM</span><span class="stat-val">10 repos</span></div>
+<div class="stat-row"><span>TESTS GREEN</span><span class="stat-val">4013</span></div>
+    </div>
+    <div class="contact-box">
+      <div class="contact-title">CONTACT</div>
+<a class="contact-line" href="https://github.com/xiaodu55"><span>github.com/xiaodu55</span></a>
+<button class="contact-line" type="button" data-copy-value="kfeng.du@outlook.com" data-copy-msg="已复制"><span>kfeng.du@outlook.com</span></button>
+<button class="contact-line" type="button" data-copy-value="17636153050" data-copy-msg="已复制"><span>17636153050</span></button>
+    </div>
+    <div class="status-open"><span class="pulse-dot" style="background: var(--accent-cyan); box-shadow: 0 0 10px var(--accent-cyan);"></span><span>OPEN TO WORK</span></div>
+  </aside>
+
+  <main class="viewport">
+<div class="section-title"><span class="idx">03</span><span>武器库</span><span class="en">ARSENAL</span></div><div class="section-sub">技术栈矩阵与经历线</div>
+<section class="panel">
+<div class="card-hud-bar"><span>技术栈矩阵</span><span class="tag">MATRIX</span></div>
+<table class="stack-table"><tbody>
+<tr><td>AGENT</td><td>LangGraph 中间件链 · MCP 规范 · ReAct 与工具审批 · 治理（心跳 / 污点审批 / 委托）</td></tr>
+<tr><td>RAG / EVAL</td><td>向量 + BM25/FTS → RRF · 冻结评测套件 · 三轨指标归因 · 引用溯源</td></tr>
+<tr><td>BACKEND</td><td>Java 17 / Spring Boot 3 · Spring Cloud Alibaba · MyBatis Plus / Flyway · 条件 UPDATE 状态机</td></tr>
+<tr><td>MIDDLEWARE</td><td>Redis（Lua / Redisson / 布隆） · RocketMQ 5（定时消息 / 死信） · MySQL + ShardingSphere · Canal / Elasticsearch</td></tr>
+<tr><td>POLYGLOT</td><td>TypeScript / Node（Electron） · Python（FastAPI · 检索管线） · vitest / CI 质量门禁</td></tr>
+<tr><td>CRAFT</td><td>证据级提交文化 · 活体验收 · 变异复验（热路径确认） · 负责任漏洞披露</td></tr>
+</tbody></table></section>
+<section class="panel">
+<div class="card-hud-bar"><span>服务记录 / SERVICE RECORD</span><span class="tag">CHRONO</span></div>
+<div class="timeline">
+<div class="tl-row"><div class="tl-period">2026.07–</div><div><div class="tl-title">AgentHarbor · 核心设计与开发</div><div class="tl-body">治理三牌 + 四账本 + 知识飞轮；Phase 4 RSI 自改进闭环</div></div></div>
+<div class="tl-row"><div class="tl-period">2026.02–</div><div><div class="tl-title">HFusionHub · 独立设计与开发</div><div class="tl-body">双语言 RAG 平台，220 例冻结评测与三轨归因体系</div></div></div>
+<div class="tl-row"><div class="tl-period">2025–</div><div><div class="tl-title">Coupon Hub · 独立设计与开发</div><div class="tl-body">高并发优惠券营销平台，Redis Lua 原子预扣 + 布隆 + RocketMQ + Canal</div></div></div>
+</div></section>
+    <div class="footer-hud">
+      <span>HFusion // AGENT OPS — BUILD 2026.11</span>
+      <span>由 github-profile-skill 生成</span>
+    </div>
+  </main>
+</div>
+
+<nav class="mobile-nav" aria-label="移动端导航">
+  <a class="m-nav-btn" href="index.html"><span class="mi">◈</span><span>概览</span></a>
+      <a class="m-nav-btn" href="missions.html"><span class="mi">▣</span><span>项目</span></a>
+      <a class="m-nav-btn active" href="arsenal.html"><span class="mi">⚙</span><span>武器库</span></a>
+      <a class="m-nav-btn" href="blog.html"><span class="mi">✎</span><span>博客</span></a>
+      <a class="m-nav-btn" href="terminal.html"><span class="mi">▷</span><span>终端</span></a>
+</nav>
+
+<script src="assets/content.js"></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview</title>
+  <meta name="description" content="杜凯峰（xiaodu55）的个人站点：Agent 治理、RAG 评测门禁与高并发后端。">
+  <meta name="author" content="HFusion">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>try { if (sessionStorage.getItem('hud_booted') === '1') { document.documentElement.className += ' no-boot'; } } catch (e) {}</script>
+</head>
+<body data-entry="1">
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="neuralCanvas" aria-hidden="true"></canvas>
+
+<div class="boot-overlay" id="bootOverlay">
+  <div class="boot-box">
+    <div class="boot-logo">HFusion // AGENT OPS</div>
+    <div class="boot-log" id="bootLog">&gt; booting ...</div>
+    <div class="boot-bar-frame"><div class="boot-bar-progress" id="bootProgress"></div></div>
+  </div>
+</div>
+
+<header class="hud">
+  <div class="hud__inner">
+    <div class="hud-left">
+      <div class="status-badge"><span class="pulse-dot"></span><span>ONLINE</span></div>
+      <div class="hud-chip"><span>个已合并上游 PR</span><strong class="cyan"><span data-live="mergedPRs">45</span></strong></div><div class="hud-chip"><span>关注者</span><strong class="cyan"><span data-live="followers">10</span></strong></div><div class="hud-chip"><span>条用例全绿</span><strong class="cyan"><span data-live="testsGreen">4013</span></strong></div><div class="hud-chip"><span>例冻结评测集</span><strong class="cyan"><span data-live="evalCases">220</span></strong></div>
+    </div>
+    <div class="hud-right">
+      <div class="hud-chip"><span>TZ</span><strong>UTC+8</strong></div>
+      <div class="hud-chip"><span>UTC</span><strong id="hudClock">00:00:00</strong></div>
+      <button class="lang-btn" type="button" id="langToggleBtn"><span class="lang-current" id="langCurrent">ZH</span> / <span id="langAlt">EN</span></button>
+      <button class="lang-btn" type="button" id="soundToggleBtn"><span id="soundIcon">🔊</span> <span id="soundStatusText">ON</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand-box">
+      <div class="brand-title"><span>HFusion</span><span class="tag">AGENT OPS</span></div>
+      <div class="brand-sub">AI 应用 / Agent 方向 · 后端开发&lt;br&gt;GitHub / xiaodu55 · 掘金 / HFusion</div>
+    </div>
+    <ul class="nav-menu">
+          <li><a class="nav-btn active" href="index.html"><span class="left-content"><span class="nav-idx">01</span><span class="nav-label" data-bind="nav.overview.label">概览</span></span><span class="nav-tag">CORE</span></a></li>
+          <li><a class="nav-btn" href="missions.html"><span class="left-content"><span class="nav-idx">02</span><span class="nav-label" data-bind="nav.missions.label">项目</span></span><span class="nav-tag">WORKS</span></a></li>
+          <li><a class="nav-btn" href="arsenal.html"><span class="left-content"><span class="nav-idx">03</span><span class="nav-label" data-bind="nav.arsenal.label">武器库</span></span><span class="nav-tag">STACK</span></a></li>
+          <li><a class="nav-btn" href="blog.html"><span class="left-content"><span class="nav-idx">04</span><span class="nav-label" data-bind="nav.blog.label">个人博客</span></span><span class="nav-tag">LOG</span></a></li>
+          <li><a class="nav-btn" href="terminal.html"><span class="left-content"><span class="nav-idx">05</span><span class="nav-label" data-bind="nav.terminal.label">终端</span></span><span class="nav-tag">CLI</span></a></li>
+    </ul>
+    <div class="sidebar-stats">
+<div class="stat-row"><span>MERGED PRs</span><span class="stat-val">45</span></div>
+<div class="stat-row"><span>UPSTREAM</span><span class="stat-val">10 repos</span></div>
+<div class="stat-row"><span>TESTS GREEN</span><span class="stat-val">4013</span></div>
+    </div>
+    <div class="contact-box">
+      <div class="contact-title">CONTACT</div>
+<a class="contact-line" href="https://github.com/xiaodu55"><span>github.com/xiaodu55</span></a>
+<button class="contact-line" type="button" data-copy-value="kfeng.du@outlook.com" data-copy-msg="已复制"><span>kfeng.du@outlook.com</span></button>
+<button class="contact-line" type="button" data-copy-value="17636153050" data-copy-msg="已复制"><span>17636153050</span></button>
+    </div>
+    <div class="status-open"><span class="pulse-dot" style="background: var(--accent-cyan); box-shadow: 0 0 10px var(--accent-cyan);"></span><span>OPEN TO WORK</span></div>
+  </aside>
+
+  <main class="viewport">
+<div class="section-title"><span class="idx">01</span><span>概览</span><span class="en">OVERVIEW</span></div><div class="section-sub">把治理边界、状态机与评测门禁建在自己手里——数字不由我背书，由冻结产物背书。</div>
+<div class="grid-2">
+<section class="panel hero-panel">
+<div class="kicker" data-bind="home.hero.tagline">AGENT ENGINEER · BACKEND INTERN · OPEN TO WORK</div>
+<h1 class="hero-headline"><span data-bind="home.hero.title">用确定性工程</span><br><span class="hl" data-bind="home.hero.highlight">驯化模型的不确定性。</span></h1>
+<div class="operator-file"><div class="stat-row"><span>OPERATOR</span><span class="stat-val">HFusion / DU KAIFENG</span></div><div class="stat-row"><span>ROLE</span><span class="stat-val">AGENT ENGINEER</span></div><div class="stat-row"><span>BASE</span><span class="stat-val">AI 应用 / Agent 方向</span></div><div class="stat-row"><span>STATUS</span><span class="stat-val">OPEN TO WORK</span></div></div>
+<p class="hero-manifesto" data-bind="home.hero.paragraph.0">三个从零开始的系统：AgentHarbor（自托管多渠道 Agent 工作台）、HFusionHub（双语言多租户 RAG 平台）、Coupon Hub（高并发优惠券营销平台）；同时给 bytedance/deer-flow 累计 45 个已合并 PR。</p>
+<p class="hero-manifesto" data-bind="home.hero.paragraph.1">我的信条：数字不由我背书，由冻结产物背书——220 例冻结评测集、4013 条用例、三轨指标归因，每一条都能用一条命令复现。</p>
+<div class="telemetry"><div class="tel-item"><div class="label">个已合并上游 PR</div><div class="value"><span data-live="mergedPRs">45</span></div></div><div class="tel-item"><div class="label">关注者</div><div class="value"><span data-live="followers">10</span></div></div><div class="tel-item"><div class="label">条用例全绿</div><div class="value"><span data-live="testsGreen">4013</span></div></div><div class="tel-item"><div class="label">例冻结评测集</div><div class="value"><span data-live="evalCases">220</span></div></div></div>
+<div class="action-row">
+<a class="btn-tactical" href="https://github.com/xiaodu55">探索 GitHub</a>
+<a class="btn-ghost" href="blog.html">读我的博客</a>
+</div>
+</section>
+<section class="panel">
+<div class="card-hud-bar"><span>数据与成果</span><span class="tag">LIVE</span></div>
+<div class="mission-card" style="margin-bottom:10px;"><div class="mission-head"><span class="mission-name">⭐ 45 个已合并上游 PR</span></div><div class="mission-desc">覆盖 10 个上游项目；deer-flow 单 PR 最长 12 轮 review 全闭环，PII 脱敏中间件已进入现役栈</div></div>
+<div class="mission-card" style="margin-bottom:10px;"><div class="mission-head"><span class="mission-name">🧪 4013 测试全绿 / 60+6 评测</span></div><div class="mission-desc">AgentHarbor：4013 用例全绿；60 例三档回放 + 6 例 held-out 封存集，Bad 全拒绝 0% 放行、Ambiguous 冻结率 100%</div></div>
+<div class="mission-card" style="margin-bottom:10px;"><div class="mission-head"><span class="mission-name">📊 220 例冻结评测集 · 三轨归因</span></div><div class="mission-desc">离线确定性 0.932 / 纯检索直测 0.830 / runtime 0.550，SHA-256 防漂移</div></div>
+<div class="mission-card" style="margin-bottom:10px;"><div class="mission-head"><span class="mission-name">⚡ 1000 并发 P95 14ms</span></div><div class="mission-desc">Coupon Hub：Redis Lua 原子预扣 + RocketMQ 异步落库 + Canal 回写，持续 ~2000 QPS、三方对账零超卖</div></div>
+</section>
+</div>
+<div class="grid-2">
+<section class="panel">
+<div class="card-hud-bar"><span>系统清单 / SYSTEMS</span><span class="tag">3</span></div>
+<div class="tl-row" style="grid-template-columns:96px 1fr;"><div class="tl-period">TS/SQLite</div><div><div class="tl-title">AgentHarbor</div><div class="mission-tags" style="margin:6px 0;"><span class="mission-tag">Agent 工作台</span><span class="mission-tag">多渠道</span><span class="mission-tag">治理</span></div><div class="tl-body">自托管多渠道 Agent 工作台：Web / Electron 与七类 IM 接入，治理三牌（心跳自治 · 污点追踪审批 · 委托驱动）、四账本可靠投递、执行安全三道防线（零网络沙箱 / 工具仲裁 fail-closed / 上下文预算熔断）、六类记忆 + 知识飞轮。</div><div class="mission-metrics"><span class="metric-chip">4013 TESTS GREEN</span><span class="metric-chip">60+6 EVAL</span><span class="metric-chip">Bad 0% 放行</span><span class="metric-chip">Ambiguous 冻结 100%</span></div></div></div>
+<div class="tl-row" style="grid-template-columns:96px 1fr;"><div class="tl-period">JAVA+PYTHON</div><div><div class="tl-title">HFusionHub</div><div class="mission-tags" style="margin:6px 0;"><span class="mission-tag">多租户</span><span class="mission-tag">RAG</span><span class="mission-tag">评测门禁</span></div><div class="tl-body">双语言多租户 RAG 平台：Java 管写路径（事务 / 租户 / 计费），Python 管 AI 全链路，HMAC 跨语言契约。</div><div class="mission-metrics"><span class="metric-chip">220 例冻结集</span><span class="metric-chip">0.932 / 0.830 / 0.550</span><span class="metric-chip">行锁 120s→ms</span></div></div></div>
+<div class="tl-row" style="grid-template-columns:96px 1fr;"><div class="tl-period">JAVA 17</div><div><div class="tl-title">Coupon Hub</div><div class="mission-tags" style="margin:6px 0;"><span class="mission-tag">高并发</span><span class="mission-tag">营销平台</span></div><div class="tl-body">高并发优惠券营销平台：Redis Lua 原子预扣 + 布隆过滤 + RocketMQ 异步落库 + Canal binlog 缓存回写。</div><div class="mission-metrics"><span class="metric-chip">1000 并发 P95 14ms</span><span class="metric-chip">~2000 QPS</span><span class="metric-chip">零超卖</span></div></div></div>
+</section>
+<section class="panel radar-card">
+<div class="card-hud-bar"><span>扫描矩阵 / SWEEP MATRIX</span><span class="tag">SCAN: ACTIVE</span></div>
+<div class="radar-wrapper"><canvas id="radarCanvas"></canvas></div>
+<div class="radar-coords"><span>FREQ: 440.0Hz</span><span>AZIMUTH: <b id="radarAzimuth">032°</b></span><span>BEARING: 184.2</span></div>
+<div class="signal-list">
+<div class="signal-item"><b>OSS</b><span>45 个已合并 PR，deer-flow 占 29 个，单 PR 最长 12 轮 review</span></div>
+<div class="signal-item"><b>EVAL</b><span>220 例冻结评测集 + 三轨归因 0.932 / 0.830 / 0.550</span></div>
+<div class="signal-item"><b>OPS</b><span>4013 用例全绿，60 例三档回放 + 6 例 held-out</span></div>
+<div class="signal-item"><b>PERF</b><span>1000 并发 P95 14ms，持续 ~2000 QPS，三方对账零超卖</span></div>
+<div class="signal-item"><b>NOW</b><span>openclaw 流式吞吐、OpenSandbox SDK 安全、跨平台协同</span></div>
+</div>
+</section>
+</div>
+<section class="panel">
+<div class="card-hud-bar"><span>近期里程碑 / MILESTONES</span><span class="tag">2026</span></div>
+<div class="milestone-list">
+<div class="milestone-item"><div class="milestone-when">2026.11</div><div><div class="milestone-what">个人博客 + 站点上线</div><div class="milestone-why">把 6 篇事故复盘与三个系统的口径公开可查</div></div></div>
+<div class="milestone-item"><div class="milestone-when">2026.10</div><div><div class="milestone-what">评测集三轨归因写进文章</div><div class="milestone-why">0.932 被错标成全链路成绩，差一个轨道结论就反转</div></div></div>
+<div class="milestone-item"><div class="milestone-when">2026.09</div><div><div class="milestone-what">deer-flow PII 脱敏中间件进现役栈</div><div class="milestone-why">HMAC 键控占位符覆盖 10+ 数据路径</div></div></div>
+<div class="milestone-item"><div class="milestone-when">2026.07</div><div><div class="milestone-what">AgentHarbor 治理三牌上线</div><div class="milestone-why">心跳自治 + 污点审批 + 委托驱动，无人值守可验收</div></div></div>
+<div class="milestone-item"><div class="milestone-when">2026.02</div><div><div class="milestone-what">HFusionHub 双语言分层跑通</div><div class="milestone-why">Java 写路径 + Python 智能链路，审批 exactly-once</div></div></div>
+</div></section>
+    <div class="footer-hud">
+      <span>HFusion // AGENT OPS — BUILD 2026.11</span>
+      <span>由 github-profile-skill 生成</span>
+    </div>
+  </main>
+</div>
+
+<nav class="mobile-nav" aria-label="移动端导航">
+  <a class="m-nav-btn active" href="index.html"><span class="mi">◈</span><span>概览</span></a>
+      <a class="m-nav-btn" href="missions.html"><span class="mi">▣</span><span>项目</span></a>
+      <a class="m-nav-btn" href="arsenal.html"><span class="mi">⚙</span><span>武器库</span></a>
+      <a class="m-nav-btn" href="blog.html"><span class="mi">✎</span><span>博客</span></a>
+      <a class="m-nav-btn" href="terminal.html"><span class="mi">▷</span><span>终端</span></a>
+</nav>
+
+<script src="assets/content.js"></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
